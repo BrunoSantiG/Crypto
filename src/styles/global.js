@@ -12,7 +12,8 @@ export default createGlobalStyle`
     max-width: 100vw;
     width: 100%;
     height: 100%;
-    background:var(--background)
+    background:var(--background);
+    color:var(--text);
   }
 
   :root {
@@ -25,8 +26,8 @@ export default createGlobalStyle`
 	}};
     --text:${(props) => {
 		return props.theme.colors.text;
-	}}
-
+	}};
+   
     --white: #D9D9D9;
     --gray: #7A7A7A;
     --black: #000;
