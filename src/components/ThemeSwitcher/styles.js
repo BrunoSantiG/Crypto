@@ -10,10 +10,10 @@ export const Container = styled.div`
 	justify-content: center;
 	border-radius: 50%;
 	cursor: pointer;
-	transition: background ease-in-out 0.2s;
+	transition: all ease-in-out 0.3s;
 
 	&:hover {
-		background: var(--secondary);
+		transform: scale(0.91);
 	}
 `;
 
