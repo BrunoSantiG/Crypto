@@ -1,25 +1,14 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { useSelector } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import Header from './components/Header';
-import Routes from './routes';
-import GlobalStyle from './styles/global';
+import store from './store';
+import Layout from './pages/Layout';
 
 function App() {
 	return (
-		<ThemeProvider
-			theme={useSelector((state) => {
-				return state.theme;
-			})}
-		>
-			<GlobalStyle />
-			<Header />
-			<BrowserRouter>
-				<Routes />
-			</BrowserRouter>
-		</ThemeProvider>
+		<Provider store={store}>
+			<Layout />
+		</Provider>
 	);
 }
 
