@@ -7,7 +7,7 @@ import ThemeSwitcher from '../ThemeSwitcher';
 function Header() {
 	return (
 		<Container>
-			<LogoArea>
+			<LogoArea to="/">
 				<img src={LogoSrc} alt="Logo da Crypto" />
 
 				<span>Crypto</span>
