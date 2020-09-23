@@ -27,7 +27,9 @@ export default createGlobalStyle`
     --text:${(props) => {
 		return props.theme.colors.text;
 	}};
-   
+   --pagination:${(props) => {
+		return props.theme.colors.pagination;
+   }};
     --white: #D9D9D9;
     --gray: #7A7A7A;
     --black: #000;

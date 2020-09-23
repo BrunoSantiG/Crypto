@@ -3,7 +3,7 @@ import * as actions from '../actions/crypto';
 
 const initialState = {
 	loading: false,
-	data: [],
+	data: {},
 	error: '',
 };
 
@@ -22,7 +22,7 @@ export default function theme(state = initialState, action) {
 			return {
 				...state,
 				loading: false,
-				data: [],
+				data: {},
 				error: action.payload,
 			};
 
