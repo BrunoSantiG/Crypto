@@ -3,7 +3,7 @@ import * as actions from '../actions/crypto';
 
 const initialState = {
 	loading: false,
-	data: {},
+	data: [],
 	error: '',
 };
 
@@ -22,7 +22,7 @@ export default function theme(state = initialState, action) {
 			return {
 				...state,
 				loading: false,
-				data: {},
+				data: [],
 				error: action.payload,
 			};
 
@@ -33,8 +33,16 @@ export default function theme(state = initialState, action) {
 
 export const getReduxCryptos = () => async (dispatch, getState) => {
 	dispatch(actions.fetchDataRequest());
+
 	const response = await getCryptos();
-	response.data
-		? dispatch(actions.fetchDataSuccess(response.data))
-		: dispatch(actions.fetchDataFailure('Ocorreu um erro'));
+
+	if (response.data) {
+		let dataArray = [];
+		for (let i in response.data) {
+			dataArray.push({ ...response.data[i], name: i });
+		}
+		dispatch(actions.fetchDataSuccess(dataArray));
+	} else {
+		dispatch(actions.fetchDataFailure('Ocorreu um erro'));
+	}
 };
