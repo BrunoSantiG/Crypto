@@ -7,10 +7,10 @@
 <blockquote align="center">Um site para visualização de dados de cotações de criptomoedas em tempo real</blockquote>
 
 <p align="center">
-  <a href="https://app.netlify.com/sites/crypto-brsanti/deploys"><img alt="Deploy status" src="https://api.netlify.com/api/v1/badges/bc310202-a43c-4ece-af7b-072d5ce75969/deploy-status"></a>
+  <a href="https://crypto-brsanti.netlify.app"><img alt="Deploy status" src="https://api.netlify.com/api/v1/badges/bc310202-a43c-4ece-af7b-072d5ce75969/deploy-status"></a>
   <a href="https://github.com/BrunoSantiG/Crypto"><img alt="GitHub Actions status" src="https://github.com/BrunoSantiG/Crypto/workflows/Build/badge.svg"></a>
   <br/>
-  <a href="https://app.netlify.com/sites/crypto-brsanti/deploys">Acesse a demo</a>
+  <a href="https://crypto-brsanti.netlify.app">Acesse a demo</a>
 </p>
 
 ## Como usar
@@ -24,6 +24,7 @@
 
 -   [ReactJS](https://pt-br.reactjs.org)
 -   [Redux](https://redux.js.org)
+-   [Redux Thunk](https://github.com/reduxjs/redux-thunk)
 -   [Axios](https://github.com/axios/axios)
 -   [Styled Components](https://styled-components.com)
 -   [Styled Icons](https://styled-icons.js.org)

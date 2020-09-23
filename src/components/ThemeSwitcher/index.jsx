@@ -12,6 +12,7 @@ function ThemeSwitcher() {
 		useSelector((state) => {
 			return state.theme.title;
 		}) === 'dark';
+
 	return (
 		<Tooltip title="Alterar tema do site" position="bottom">
 			<Container
