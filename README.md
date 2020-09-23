@@ -2,7 +2,6 @@
 <img width="70px" height="70px" alt="logo" src="https://github.com/BrunoSantiG/Crypto/blob/main/src/assets/img/logo.png">
 </p>
 <h1 align="center">Crypto</h1>
-<h3 align="center">[Acesse a demo](https://app.netlify.com/sites/crypto-brsanti/deploys)</h3>
 
 <blockquote align="center">Um site para visualização de dados de cotações de criptomoedas em tempo real</blockquote>
 
