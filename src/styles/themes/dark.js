@@ -2,7 +2,7 @@ export default {
 	title: 'dark',
 
 	colors: {
-		background: '#2B2D42',
+		background: '#222',
 		text: '#fff',
 	},
 };
