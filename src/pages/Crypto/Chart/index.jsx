@@ -12,13 +12,12 @@ function Chart() {
 	const [data, setData] = useState([]);
 	useEffect(() => {
 		setData([]);
-		async function handleChartData() {
+		setInterval(async function () {
 			const response = await get24HChart(crypto);
 			if (response.data) {
 				setData(response.data);
 			}
-		}
-		handleChartData();
+		}, 500);
 	}, [crypto]);
 	const isDarkTheme =
 		useSelector((state) => {
@@ -29,7 +28,6 @@ function Chart() {
 		chart: {
 			backgroundColor: 'transparent',
 			type: 'area',
-			animation: false,
 		},
 		credits: {
 			enabled: false,
@@ -51,7 +49,6 @@ function Chart() {
 
 				return hours + ':' + minutes.substr(-2);
 			}),
-			reversed: true,
 			labels: {
 				style: {
 					color: color,
@@ -106,7 +103,11 @@ function Chart() {
 	};
 	return (
 		<Container>
-			<HighchartsReact highcharts={Highcharts} options={options} />
+			<HighchartsReact
+				updateArgs={[true, true, true]}
+				highcharts={Highcharts}
+				options={options}
+			/>
 		</Container>
 	);
 }

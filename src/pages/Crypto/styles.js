@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { ArrowBack } from 'styled-icons/evaicons-solid/';
 export const Container = styled.div`
+	width: 100vw;
+
 	margin-top: 1rem;
 	padding: 1rem 5rem;
 	display: flex;
@@ -46,8 +48,22 @@ export const Title = styled.div`
 `;
 
 export const CardBox = styled.div`
+	overflow: hidden;
+	width: 100%;
 	margin-top: 1rem;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	column-gap: 1rem;
+	gap: 1rem;
+
+	@media (max-width: 1000px) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	@media (max-width: 500px) {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		gap: 1rem;
+	}
 `;

@@ -7,11 +7,11 @@ export const getCryptos = async () => {
 };
 
 export const get24HChart = async (crypto) => {
-	let end = Math.floor(Date.now() / 1000),
-		start = end - 86400;
-	const response = await Axios.get(
-		`https://poloniex.com/public?command=returnChartData&currencyPair=${crypto}&start=${start}&end=${end}&period=7200`
-	);
+	let end = Math.round(Date.now() / 1000),
+		start = end - 43200;
 
+	const response = await Axios.get(
+		`https://poloniex.com/public?command=returnChartData&currencyPair=${crypto}&start=${start}&end=${end}&period=1800`
+	);
 	return response;
 };
