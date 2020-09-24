@@ -38,6 +38,7 @@ function Table({ data, columns, loading, erro }) {
 						</TableRow>
 					)}
 					{data.map((row) => {
+						const currency = row.name.split('_')[0];
 						return (
 							<TableRow key={row.id}>
 								<DataCell data-label="Name">
@@ -47,14 +48,15 @@ function Table({ data, columns, loading, erro }) {
 								</DataCell>
 								<DataCell data-label="Last Price">
 									{row.last}
-									<span>BTC</span>
+									<span>{currency}</span>
 								</DataCell>
 								<DataCell data-label="Volume">
 									{row.baseVolume}
+									<span>{currency}</span>
 								</DataCell>
 								<DataCell data-label="Highest Bid">
 									{row.highestBid}
-									<span>BTC</span>
+									<span>{currency}</span>
 								</DataCell>
 								<DataCell data-label="Variation">
 									{row.percentChange}
