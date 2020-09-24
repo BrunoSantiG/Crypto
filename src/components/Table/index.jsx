@@ -24,21 +24,29 @@ function Table({ data, columns, loading, erro }) {
 				<TableBody>
 					{erro && (
 						<TableRow>
-							<DataCell colspan="4">{erro}</DataCell>
+							<DataCell colSpan="4">{erro}</DataCell>
 						</TableRow>
 					)}
 					{loading && (
 						<TableRow>
-							<DataCell colspan="4">Carregando dados</DataCell>
+							<DataCell colSpan="4">Carregando dados</DataCell>
 						</TableRow>
 					)}
 					{data.map((row) => {
 						return (
-							<TableRow>
-								<DataCell>{row.name}</DataCell>
-								<DataCell>{row.baseVolume}</DataCell>
-								<DataCell>{row.highestBid}</DataCell>
-								<DataCell>{row.percentChange}</DataCell>
+							<TableRow key={row.id}>
+								<DataCell data-label="Name">
+									{row.name}
+								</DataCell>
+								<DataCell data-label="Volume">
+									{row.baseVolume}
+								</DataCell>
+								<DataCell data-label="Highest Bid">
+									{row.highestBid}
+								</DataCell>
+								<DataCell data-label="Percentage Change">
+									{row.percentChange}
+								</DataCell>
 							</TableRow>
 						);
 					})}

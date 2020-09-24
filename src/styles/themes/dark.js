@@ -4,6 +4,5 @@ export default {
 	colors: {
 		background: '#2B2D42',
 		text: '#fff',
-		pagination: '#47ccde',
 	},
 };

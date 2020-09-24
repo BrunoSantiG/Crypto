@@ -6,7 +6,7 @@ import Table from '../Table';
 import TextInput from '../TextInput';
 import Pagination from '../Pagination';
 function DataTable({ data, columns }) {
-	const [limit, setLimit] = useState(10);
+	const [limit, setLimit] = useState(5);
 	const [search, setSearch] = useState('');
 	const [page, setPage] = useState(1);
 	const offset = (page - 1) * limit;

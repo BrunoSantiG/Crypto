@@ -12,7 +12,7 @@ export const Controls = styled.div`
 	justify-content: center;
 	color: var(--text);
 
-	margin-top: 8px;
+	margin-top: 2rem;
 	> * {
 		cursor: pointer;
 		display: flex;
