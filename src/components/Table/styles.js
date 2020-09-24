@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { LoaderAlt } from 'styled-icons/boxicons-regular';
 
 export const Container = styled.div`
 	margin-top: 1rem;
@@ -64,9 +66,47 @@ export const TableRow = styled.tr`
 		background: var(--background);
 	}
 `;
+
+export const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: var(--text);
+	&:hover {
+		color: var(--text);
+	}
+
+	&:after {
+		display: block;
+		content: '';
+		border-bottom: 1px solid var(--text);
+		transform: scaleX(0);
+		transition: transform 250ms ease-in-out;
+	}
+
+	&:hover:after {
+		transform: scaleX(1);
+	}
+`;
+
 export const HeadCell = styled.th``;
 export const DataCell = styled.td`
 	> span {
 		font-size: 0.6rem;
 	}
+`;
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const LoadingIcon = styled(LoaderAlt)`
+	height: 1.5rem;
+	width: 1.5rem;
+	color: var(--text);
+	margin-right: 0.6rem;
+	animation: 500ms linear ${spin} infinite;
 `;

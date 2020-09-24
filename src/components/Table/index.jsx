@@ -6,8 +6,10 @@ import {
 	TableHeader,
 	TableBody,
 	TableRow,
+	StyledLink,
 	HeadCell,
 	DataCell,
+	LoadingIcon,
 } from './styles';
 
 function Table({ data, columns, loading, erro }) {
@@ -29,25 +31,32 @@ function Table({ data, columns, loading, erro }) {
 					)}
 					{loading && (
 						<TableRow>
-							<DataCell colSpan="5">Carregando dados</DataCell>
+							<DataCell colSpan="5">
+								<LoadingIcon />
+								Carregando dados
+							</DataCell>
 						</TableRow>
 					)}
 					{data.map((row) => {
+						const currency = row.name.split('_')[0];
 						return (
 							<TableRow key={row.id}>
 								<DataCell data-label="Name">
-									{row.name}
+									<StyledLink to={`/${row.name}`}>
+										{row.name}
+									</StyledLink>
 								</DataCell>
 								<DataCell data-label="Last Price">
 									{row.last}
-									<span>BTC</span>
+									<span>{currency}</span>
 								</DataCell>
 								<DataCell data-label="Volume">
 									{row.baseVolume}
+									<span>{currency}</span>
 								</DataCell>
 								<DataCell data-label="Highest Bid">
 									{row.highestBid}
-									<span>BTC</span>
+									<span>{currency}</span>
 								</DataCell>
 								<DataCell data-label="Variation">
 									{row.percentChange}
