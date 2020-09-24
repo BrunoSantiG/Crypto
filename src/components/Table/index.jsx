@@ -6,6 +6,7 @@ import {
 	TableHeader,
 	TableBody,
 	TableRow,
+	StyledLink,
 	HeadCell,
 	DataCell,
 } from './styles';
@@ -27,7 +28,7 @@ function Table({ data, columns, loading, erro }) {
 							<DataCell colSpan="5">{erro}</DataCell>
 						</TableRow>
 					)}
-					{loading && (
+					{loading && !data && (
 						<TableRow>
 							<DataCell colSpan="5">Carregando dados</DataCell>
 						</TableRow>
@@ -36,7 +37,9 @@ function Table({ data, columns, loading, erro }) {
 						return (
 							<TableRow key={row.id}>
 								<DataCell data-label="Name">
-									{row.name}
+									<StyledLink to={`/${row.name}`}>
+										{row.name}
+									</StyledLink>
 								</DataCell>
 								<DataCell data-label="Last Price">
 									{row.last}

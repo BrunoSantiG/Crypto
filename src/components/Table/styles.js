@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -64,6 +65,27 @@ export const TableRow = styled.tr`
 		background: var(--background);
 	}
 `;
+
+export const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: var(--text);
+	&:hover {
+		color: var(--text);
+	}
+
+	&:after {
+		display: block;
+		content: '';
+		border-bottom: 1px solid var(--text);
+		transform: scaleX(0);
+		transition: transform 250ms ease-in-out;
+	}
+
+	&:hover:after {
+		transform: scaleX(1);
+	}
+`;
+
 export const HeadCell = styled.th``;
 export const DataCell = styled.td`
 	> span {
