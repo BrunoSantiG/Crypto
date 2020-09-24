@@ -44,3 +44,10 @@ export const PrevIcon = styled(ArrowBack)`
 export const Title = styled.div`
 	font: 700 2rem Archivo;
 `;
+
+export const CardBox = styled.div`
+	margin-top: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	column-gap: 1rem;
+`;

@@ -1,12 +1,21 @@
 import dark from '../../styles/themes/dark';
 import light from '../../styles/themes/light';
+import UsePersistedState from '../../utils/UsePersistedState';
 
 import * as actions from '../actions/theme';
-
-export default function theme(state = dark, action) {
+const stateAlreadyExist = UsePersistedState('theme');
+let initialState = dark;
+if (stateAlreadyExist) {
+	initialState = JSON.parse(stateAlreadyExist);
+} else {
+	UsePersistedState('theme', dark);
+}
+export default function theme(state = initialState, action) {
 	switch (action.type) {
 		case actions.TOGGLE_THEME:
-			return state.title === 'dark' ? light : dark;
+			const newState = state.title === 'dark' ? light : dark;
+			UsePersistedState('theme', newState);
+			return newState;
 		default:
 			return state;
 	}

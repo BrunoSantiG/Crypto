@@ -30,6 +30,9 @@ export default createGlobalStyle`
     --text:${(props) => {
 		return props.theme.colors.text;
 	}};
+    --shadow:${(props) => {
+		return props.theme.colors.shadow;
+	}};
     --white: #D9D9D9;
     --logo:#00676a
   }
