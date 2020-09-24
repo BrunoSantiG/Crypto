@@ -36,6 +36,7 @@ function Chart({ data, yAxis }) {
 
 				return hours + ':' + minutes.substr(-2);
 			}),
+			reversed: true,
 			labels: {
 				style: {
 					color: color,
@@ -74,6 +75,22 @@ function Chart({ data, yAxis }) {
 				}),
 			},
 		],
+		responsive: {
+			rules: [
+				{
+					condition: {
+						maxWidth: 500,
+					},
+					chartOptions: {
+						yAxis: {
+							title: {
+								text: null,
+							},
+						},
+					},
+				},
+			],
+		},
 	};
 	return (
 		<Container>

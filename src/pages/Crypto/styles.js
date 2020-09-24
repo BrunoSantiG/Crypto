@@ -5,9 +5,13 @@ export const Container = styled.div`
 	padding: 1rem 5rem;
 	display: flex;
 	flex-direction: column;
+
+	@media (max-width: 850px) {
+		padding: 1rem 0.5rem;
+	}
 `;
 
-export const TopRow = styled.div`
+export const TopRow = styled.header`
 	width: 100%;
 	margin-bottom: 3rem;
 	display: grid;
@@ -37,4 +41,6 @@ export const PrevIcon = styled(ArrowBack)`
 	color: var(--text);
 `;
 
-export const Title = styled.h2``;
+export const Title = styled.div`
+	font: 700 2rem Archivo;
+`;

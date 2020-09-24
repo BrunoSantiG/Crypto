@@ -24,6 +24,12 @@ export const LogoArea = styled(Link)`
 		font: 400 2rem Archivo;
 		color: var(--logo);
 	}
+
+	@media (max-width: 400px) {
+		> span {
+			display: none;
+		}
+	}
 `;
 export const RightArea = styled.div`
 	display: flex;
