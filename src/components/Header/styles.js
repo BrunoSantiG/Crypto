@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Github } from 'styled-icons/feather';
 export const Container = styled.header`
@@ -10,9 +11,10 @@ export const Container = styled.header`
 	padding: 0 30px;
 `;
 
-export const LogoArea = styled.div`
+export const LogoArea = styled(Link)`
 	display: flex;
 	align-items: center;
+	text-decoration: none;
 	> img {
 		width: 50px;
 		height: 50px;

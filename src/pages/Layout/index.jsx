@@ -15,8 +15,8 @@ function App() {
 			})}
 		>
 			<GlobalStyle />
-			<Header />
 			<BrowserRouter>
+				<Header />
 				<Routes />
 			</BrowserRouter>
 		</ThemeProvider>

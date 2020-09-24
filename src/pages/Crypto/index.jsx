@@ -5,7 +5,7 @@ import { Container } from './styles';
 
 function Crypto() {
 	let { crypto } = useParams();
-	return <Container>{crypto}</Container>;
+	return <Container></Container>;
 }
 
 export default Crypto;
