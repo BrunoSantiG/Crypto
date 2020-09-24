@@ -27,12 +27,7 @@ function DataTable({ data, columns }) {
 				<Limit value={limit} setValue={setLimit} />
 				<TextInput label="Buscar" value={search} setValue={setSearch} />
 			</TopBar>
-			<Table
-				columns={columns}
-				loading={data.loading}
-				erro={data.erro}
-				data={filtered_data}
-			/>
+			<Table columns={columns} erro={data.erro} data={filtered_data} />
 			<Pagination
 				limit={limit}
 				setPage={setPage}

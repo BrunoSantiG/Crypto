@@ -12,7 +12,7 @@ import {
 	LoadingIcon,
 } from './styles';
 
-function Table({ data, columns, loading, erro }) {
+function Table({ data, columns, erro }) {
 	return (
 		<Container>
 			<TableContainer>
@@ -29,7 +29,7 @@ function Table({ data, columns, loading, erro }) {
 							<DataCell colSpan="5">{erro}</DataCell>
 						</TableRow>
 					)}
-					{loading && (
+					{data.length === 0 && (
 						<TableRow>
 							<DataCell colSpan="5">
 								<LoadingIcon />
