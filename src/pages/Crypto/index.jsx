@@ -15,7 +15,7 @@ import {
 	Title,
 	CardBox,
 } from './styles';
-import { filterCrypto } from './util';
+import { filterCrypto } from '../../utils/filter';
 
 function Crypto() {
 	let { crypto } = useParams();
