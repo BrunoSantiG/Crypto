@@ -17,8 +17,12 @@ export default createGlobalStyle`
   }
 
   :root {
-    --secondary: #333;
-    --secondary-hover:#444;
+    --secondary: ${(props) => {
+		return props.theme.colors.secondary;
+	}};
+    --secondary-hover:${(props) => {
+		return props.theme.colors.secondaryHover;
+	}};
 
     --background:${(props) => {
 		return props.theme.colors.background;

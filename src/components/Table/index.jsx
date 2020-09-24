@@ -24,12 +24,12 @@ function Table({ data, columns, loading, erro }) {
 				<TableBody>
 					{erro && (
 						<TableRow>
-							<DataCell colSpan="4">{erro}</DataCell>
+							<DataCell colSpan="5">{erro}</DataCell>
 						</TableRow>
 					)}
 					{loading && (
 						<TableRow>
-							<DataCell colSpan="4">Carregando dados</DataCell>
+							<DataCell colSpan="5">Carregando dados</DataCell>
 						</TableRow>
 					)}
 					{data.map((row) => {
@@ -38,13 +38,18 @@ function Table({ data, columns, loading, erro }) {
 								<DataCell data-label="Name">
 									{row.name}
 								</DataCell>
+								<DataCell data-label="Last Price">
+									{row.last}
+									<span>BTC</span>
+								</DataCell>
 								<DataCell data-label="Volume">
 									{row.baseVolume}
 								</DataCell>
 								<DataCell data-label="Highest Bid">
 									{row.highestBid}
+									<span>BTC</span>
 								</DataCell>
-								<DataCell data-label="Percentage Change">
+								<DataCell data-label="Variation">
 									{row.percentChange}
 								</DataCell>
 							</TableRow>

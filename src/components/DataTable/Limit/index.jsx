@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Label, Select } from './styles';
+import { Container, Label, Select } from './styles';
 
 function Limit({ value, setValue }) {
 	return (
-		<div>
+		<Container>
 			<Label forHtml="limit">Linhas por página:</Label>
 			<Select
 				id="limit"
@@ -18,7 +18,7 @@ function Limit({ value, setValue }) {
 				<option value="15">15</option>
 				<option value="20">20</option>
 			</Select>
-		</div>
+		</Container>
 	);
 }
 

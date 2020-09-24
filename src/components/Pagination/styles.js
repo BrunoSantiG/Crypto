@@ -22,7 +22,7 @@ export const Controls = styled.div`
 	}
 `;
 export const Numbers = styled.div`
-	font: 400 1.5rem Poppins;
+	font: 400 1.2rem Poppins;
 `;
 export const PageItem = styled.div`
 	color: ${(props) => {

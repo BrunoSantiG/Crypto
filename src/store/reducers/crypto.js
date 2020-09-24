@@ -39,7 +39,12 @@ export const getReduxCryptos = () => async (dispatch, getState) => {
 	if (response.data) {
 		let dataArray = [];
 		for (let i in response.data) {
-			dataArray.push({ ...response.data[i], name: i });
+			dataArray.push({
+				...response.data[i],
+				name: i,
+				percentChange:
+					(response.data[i].percentChange * 100).toFixed(2) + '%',
+			});
 		}
 		dispatch(actions.fetchDataSuccess(dataArray));
 	} else {

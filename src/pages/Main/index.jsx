@@ -14,7 +14,13 @@ function Main() {
 	const crypto = useSelector((state) => {
 		return state.crypto;
 	});
-	const columns = ['Name', 'Volume', 'Highest Bid', 'Percentage Change'];
+	const columns = [
+		'Name',
+		'Last Price',
+		'Volume',
+		'Highest Bid',
+		'Variation',
+	];
 	return (
 		<Container>
 			<DataTable data={crypto} columns={columns} />

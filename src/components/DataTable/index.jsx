@@ -17,7 +17,8 @@ function DataTable({ data, columns }) {
 				value.name.toLowerCase().includes(search.toLowerCase()) ||
 				value.baseVolume.toString().includes(search.toLowerCase()) ||
 				value.highestBid.toString().includes(search.toLowerCase()) ||
-				value.percentChange.toString().includes(search.toLowerCase())
+				value.last.toString().includes(search.toLowerCase()) ||
+				value.percentChange.includes(search.toLowerCase())
 		)
 		.slice(offset, end);
 	return (

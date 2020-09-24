@@ -12,7 +12,8 @@ export const TableContainer = styled.table`
 	th,
 	td {
 		padding: 1rem;
-		border: 1px solid #ddd;
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
 		text-align: center;
 	}
 
@@ -54,6 +55,18 @@ export const TableHeader = styled.thead`
 export const TableBody = styled.tbody`
 	font-size: 1.2rem;
 `;
-export const TableRow = styled.tr``;
+export const TableRow = styled.tr`
+	&:hover {
+		background: var(--secondary-hover);
+	}
+
+	&:hover > th {
+		background: var(--background);
+	}
+`;
 export const HeadCell = styled.th``;
-export const DataCell = styled.td``;
+export const DataCell = styled.td`
+	> span {
+		font-size: 0.6rem;
+	}
+`;

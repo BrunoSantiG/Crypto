@@ -2,9 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	padding: 0px 24px;
-	width: min(399px, 100%);
+	width: min(250px, 100%);
 
 	max-height: 57px;
+	@media (max-width: 550px) {
+		width: 100vw;
+		margin-bottom: 1.2rem;
+	}
 `;
 
 export const Input = styled.input`
