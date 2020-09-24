@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 import { Container } from './styles';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { get24HChart } from '../../../services/api';
 
-function Chart({ data, yAxis }) {
+function Chart() {
+	let { crypto } = useParams();
+	const [data, setData] = useState([]);
+	useEffect(() => {
+		setData([]);
+		async function handleChartData() {
+			const response = await get24HChart(crypto);
+			if (response.data) {
+				setData(response.data);
+			}
+		}
+		handleChartData();
+	}, [crypto]);
 	const isDarkTheme =
 		useSelector((state) => {
 			return state.theme.title;
@@ -15,6 +29,7 @@ function Chart({ data, yAxis }) {
 		chart: {
 			backgroundColor: 'transparent',
 			type: 'area',
+			animation: false,
 		},
 		credits: {
 			enabled: false,
@@ -26,7 +41,7 @@ function Chart({ data, yAxis }) {
 			},
 		},
 		tooltip: {
-			pointFormat: '{series.name}: <b>{point.y} ' + yAxis + '</b>',
+			pointFormat: '{series.name}: <b>{point.y} </b>',
 		},
 		xAxis: {
 			categories: data.map((row) => {
@@ -45,10 +60,7 @@ function Chart({ data, yAxis }) {
 		},
 		yAxis: {
 			title: {
-				text: yAxis,
-				style: {
-					color: color,
-				},
+				text: null,
 			},
 			labels: {
 				style: {
@@ -99,4 +111,4 @@ function Chart({ data, yAxis }) {
 	);
 }
 
-export default Chart;
+export default React.memo(Chart);
