@@ -1,5 +1,6 @@
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { LoaderAlt } from 'styled-icons/boxicons-regular';
 
 export const Container = styled.div`
 	margin-top: 1rem;
@@ -91,4 +92,21 @@ export const DataCell = styled.td`
 	> span {
 		font-size: 0.6rem;
 	}
+`;
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const LoadingIcon = styled(LoaderAlt)`
+	height: 1.5rem;
+	width: 1.5rem;
+	color: var(--text);
+	margin-right: 0.6rem;
+	animation: 500ms linear ${spin} infinite;
 `;

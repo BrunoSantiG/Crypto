@@ -9,6 +9,7 @@ import {
 	StyledLink,
 	HeadCell,
 	DataCell,
+	LoadingIcon,
 } from './styles';
 
 function Table({ data, columns, loading, erro }) {
@@ -28,9 +29,12 @@ function Table({ data, columns, loading, erro }) {
 							<DataCell colSpan="5">{erro}</DataCell>
 						</TableRow>
 					)}
-					{loading && !data && (
+					{loading && (
 						<TableRow>
-							<DataCell colSpan="5">Carregando dados</DataCell>
+							<DataCell colSpan="5">
+								<LoadingIcon />
+								Carregando dados
+							</DataCell>
 						</TableRow>
 					)}
 					{data.map((row) => {
