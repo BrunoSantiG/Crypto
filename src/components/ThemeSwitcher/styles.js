@@ -21,7 +21,7 @@ const iconCSS = css`
 	flex-shrink: 0;
 	width: 30px;
 	height: 30px;
-	color: var(--white);
+	color: var(--text);
 `;
 
 export const SunIcon = styled(Sun)`

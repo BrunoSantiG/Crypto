@@ -17,9 +17,12 @@ export default createGlobalStyle`
   }
 
   :root {
-    --primary:#F296B2;
-    --secondary: #F56960;
-    --secondary-hover:#CC5750;
+    --secondary: ${(props) => {
+		return props.theme.colors.secondary;
+	}};
+    --secondary-hover:${(props) => {
+		return props.theme.colors.secondaryHover;
+	}};
 
     --background:${(props) => {
 		return props.theme.colors.background;
@@ -27,10 +30,7 @@ export default createGlobalStyle`
     --text:${(props) => {
 		return props.theme.colors.text;
 	}};
-   
     --white: #D9D9D9;
-    --gray: #7A7A7A;
-    --black: #000;
     --logo:#00676a
   }
 `;

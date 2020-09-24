@@ -12,8 +12,12 @@ function ThemeSwitcher() {
 		useSelector((state) => {
 			return state.theme.title;
 		}) === 'dark';
+
 	return (
-		<Tooltip title="Alterar tema do site" position="bottom">
+		<Tooltip
+			title={isDarkTheme ? 'Light Theme' : 'Dark Theme'}
+			position="bottom"
+		>
 			<Container
 				onClick={() => {
 					dispatch({ type: TOGGLE_THEME });
