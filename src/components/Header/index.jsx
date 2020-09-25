@@ -6,6 +6,7 @@ import 'react-tippy/dist/tippy.css';
 import {
 	Container,
 	LogoArea,
+	CompanyName,
 	RightArea,
 	ExternalLink,
 	GithubIcon,
@@ -19,7 +20,7 @@ function Header() {
 			<LogoArea to="/">
 				<img src={LogoSrc} alt="Logo da Crypto" />
 
-				<span>Crypto</span>
+				<CompanyName>Crypto</CompanyName>
 			</LogoArea>
 			<RightArea>
 				<Tooltip title={'Acessar reposório'} position="bottom">

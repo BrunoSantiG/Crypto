@@ -19,18 +19,16 @@ export const LogoArea = styled(Link)`
 		width: 50px;
 		height: 50px;
 	}
+`;
 
-	> span {
-		font: 400 2rem Archivo;
-		color: var(--logo);
-	}
-
+export const CompanyName = styled.span`
+	font: 400 2rem Archivo;
+	color: var(--logo);
 	@media (max-width: 400px) {
-		> span {
-			display: none;
-		}
+		display: none;
 	}
 `;
+
 export const RightArea = styled.div`
 	display: flex;
 	align-items: center;

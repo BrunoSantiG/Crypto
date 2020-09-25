@@ -1,16 +1,40 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 import { Container } from './styles';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { get24HChart } from '../../../services/api';
 
-function Chart({ data, yAxis }) {
+function Chart() {
+	let { crypto } = useParams();
+	const sufix = crypto.split('_')[0];
+	const [data, setData] = useState([]);
+	const savedInterval = useRef();
+
+	useEffect(() => {
+		let mounted = true;
+		setData([]);
+
+		savedInterval.current = setInterval(async function () {
+			let response = await get24HChart(crypto);
+			if (response.data && mounted) {
+				setData(response.data);
+			}
+		}, 1000);
+		return () => {
+			clearInterval(savedInterval.current);
+			mounted = false;
+		};
+	}, [crypto]);
+
 	const isDarkTheme =
 		useSelector((state) => {
 			return state.theme.title;
 		}) === 'dark';
 	const color = isDarkTheme ? 'white' : 'black';
+
 	const options = {
 		chart: {
 			backgroundColor: 'transparent',
@@ -26,7 +50,7 @@ function Chart({ data, yAxis }) {
 			},
 		},
 		tooltip: {
-			pointFormat: '{series.name}: <b>{point.y} ' + yAxis + '</b>',
+			pointFormat: '{series.name}: <b>{point.y}' + sufix + '</b>',
 		},
 		xAxis: {
 			categories: data.map((row) => {
@@ -36,7 +60,6 @@ function Chart({ data, yAxis }) {
 
 				return hours + ':' + minutes.substr(-2);
 			}),
-			reversed: true,
 			labels: {
 				style: {
 					color: color,
@@ -45,7 +68,7 @@ function Chart({ data, yAxis }) {
 		},
 		yAxis: {
 			title: {
-				text: yAxis,
+				text: sufix,
 				style: {
 					color: color,
 				},
@@ -94,9 +117,13 @@ function Chart({ data, yAxis }) {
 	};
 	return (
 		<Container>
-			<HighchartsReact highcharts={Highcharts} options={options} />
+			<HighchartsReact
+				updateArgs={[true, true, true]}
+				highcharts={Highcharts}
+				options={options}
+			/>
 		</Container>
 	);
 }
 
-export default Chart;
+export default React.memo(Chart);

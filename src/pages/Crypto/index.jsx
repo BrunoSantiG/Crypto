@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getReduxCryptos } from '../../store/reducers/crypto';
 import Cards from '../../components/Cards';
-import { get24HChart } from '../../services/api';
 import Chart from './Chart';
 
 import {
@@ -19,25 +18,17 @@ import { filterCrypto } from '../../utils/filter';
 
 function Crypto() {
 	let { crypto } = useParams();
-	const [chartData, setChartData] = useState([]);
+
 	const response = useSelector((state) => {
 		return state.crypto;
 	});
 	const dispatch = useDispatch();
 	let obj;
 	useEffect(() => {
-		setChartData([]);
-		async function handleChartData() {
-			const response = await get24HChart(crypto);
-			if (response.data) {
-				setChartData(response.data);
-			}
-		}
 		if (response.data.length === 0) {
 			dispatch(getReduxCryptos());
 		}
-		handleChartData();
-	}, [crypto, dispatch, response.data]);
+	}, [dispatch, response.data]);
 
 	if (response.data.length > 0) {
 		obj = filterCrypto(crypto, response.data);
@@ -54,7 +45,7 @@ function Crypto() {
 
 				<Title>{crypto}</Title>
 			</TopRow>
-			{chartData && <Chart data={chartData} yAxis={sufix} />}
+			<Chart />
 			{obj && (
 				<CardBox>
 					<Cards
@@ -73,10 +64,7 @@ function Crypto() {
 						content={obj.lowestAsk}
 						sufix={sufix}
 					/>
-				</CardBox>
-			)}
-			{obj && (
-				<CardBox>
+
 					<Cards
 						title={'Volume'}
 						content={obj.baseVolume}

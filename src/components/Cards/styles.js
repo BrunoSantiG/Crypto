@@ -18,13 +18,13 @@ export const Container = styled.div`
 `;
 export const CardTitle = styled.div`
 	padding: 1rem;
-	font-size: 1.4rem;
+	font-size: 1rem;
 `;
 
 export const CardBody = styled.div`
 	margin-bottom: 1rem;
-	font-size: 2rem;
+	font-size: 1.2rem;
 	> span {
-		font-size: 1rem;
+		font-size: 0.8rem;
 	}
 `;
