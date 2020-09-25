@@ -19,7 +19,7 @@ export const TableContainer = styled.table`
 		text-align: center;
 	}
 
-	@media (max-width: 550px) {
+	@media (max-width: 700px) {
 		tbody,
 		tr,
 		td {
@@ -50,7 +50,7 @@ export const TableContainer = styled.table`
 export const TableHeader = styled.thead`
 	font-size: 1.3rem;
 
-	@media (max-width: 550px) {
+	@media (max-width: 700px) {
 		display: none;
 	}
 `;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Container } from './styles';
+import { Container, Title, Ps } from './styles';
 import DataTable from '../../components/DataTable';
 import { getReduxCryptos } from '../../store/reducers/crypto';
 
@@ -23,6 +23,8 @@ function Main() {
 	];
 	return (
 		<Container>
+			<Title>Cryptocurrency quotes in real time</Title>
+			<Ps>Click on the crypto name to view more data</Ps>
 			<DataTable data={crypto} columns={columns} />
 		</Container>
 	);
