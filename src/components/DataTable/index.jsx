@@ -10,27 +10,26 @@ function DataTable({ data, columns }) {
 	const [search, setSearch] = useState('');
 	const [page, setPage] = useState(1);
 	const [filtered_data, setFilteredData] = useState([]);
+	const [totalItems, setTotalItems] = useState(0);
+
 	useEffect(() => {
 		const offset = (page - 1) * limit;
 		const end = Number(offset) + Number(limit);
-		setFilteredData(
-			data.data
-				.filter(
-					(value) =>
-						value.name
-							.toLowerCase()
-							.includes(search.toLowerCase()) ||
-						value.baseVolume
-							.toString()
-							.includes(search.toLowerCase()) ||
-						value.highestBid
-							.toString()
-							.includes(search.toLowerCase()) ||
-						value.last.toString().includes(search.toLowerCase()) ||
-						value.percentChange.includes(search.toLowerCase())
-				)
-				.slice(offset, end)
+
+		const filtered = data.data.filter(
+			(value) =>
+				value.name.toLowerCase().includes(search.toLowerCase()) ||
+				value.baseVolume.toString().includes(search.toLowerCase()) ||
+				value.highestBid.toString().includes(search.toLowerCase()) ||
+				value.last.toString().includes(search.toLowerCase()) ||
+				value.percentChange.includes(search.toLowerCase())
 		);
+		setFilteredData(filtered.slice(offset, end));
+
+		setTotalItems(filtered.length);
+		if (Math.ceil(filtered.length / limit) < page && page !== 1) {
+			setPage(Math.ceil(filtered.length / limit));
+		}
 	}, [data.data, limit, search, page]);
 
 	return (
@@ -44,7 +43,7 @@ function DataTable({ data, columns }) {
 				limit={limit}
 				setPage={setPage}
 				page={page}
-				totalItems={data.data.length}
+				totalItems={totalItems}
 			/>
 		</Container>
 	);
