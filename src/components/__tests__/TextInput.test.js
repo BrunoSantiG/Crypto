@@ -12,17 +12,17 @@ describe('TexInput Component', () => {
 	beforeEach(() => {
 		wrapper = mount(<TextInput value={value} setValue={setValue} />);
 	});
-	it('should render an input tag', () => {
+	it('Should render an input tag', () => {
 		expect(wrapper.exists('input')).toEqual(true);
 	});
 
-	it('should add label props as placeholder', () => {
+	it('Should add label props as placeholder', () => {
 		wrapper.setProps({ label: 'Type here' });
 		const input = wrapper.find('input');
 		expect(input.get(0).props.placeholder).toEqual('Type here');
 	});
 
-	it('should change value', () => {
+	it('Should trigger setValue when user types', () => {
 		const input = wrapper.find('input');
 		input.simulate('change', { target: { value: 'new value' } });
 		expect(value).toEqual('new value');
