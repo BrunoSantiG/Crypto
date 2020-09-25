@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
@@ -9,21 +9,32 @@ import { get24HChart } from '../../../services/api';
 
 function Chart() {
 	let { crypto } = useParams();
+	const sufix = crypto.split('_')[0];
 	const [data, setData] = useState([]);
+	const savedInterval = useRef();
+
 	useEffect(() => {
+		let mounted = true;
 		setData([]);
-		setInterval(async function () {
-			const response = await get24HChart(crypto);
-			if (response.data) {
+
+		savedInterval.current = setInterval(async function () {
+			let response = await get24HChart(crypto);
+			if (response.data && mounted) {
 				setData(response.data);
 			}
-		}, 500);
+		}, 1000);
+		return () => {
+			clearInterval(savedInterval.current);
+			mounted = false;
+		};
 	}, [crypto]);
+
 	const isDarkTheme =
 		useSelector((state) => {
 			return state.theme.title;
 		}) === 'dark';
 	const color = isDarkTheme ? 'white' : 'black';
+
 	const options = {
 		chart: {
 			backgroundColor: 'transparent',
@@ -39,7 +50,7 @@ function Chart() {
 			},
 		},
 		tooltip: {
-			pointFormat: '{series.name}: <b>{point.y} </b>',
+			pointFormat: '{series.name}: <b>{point.y}' + sufix + '</b>',
 		},
 		xAxis: {
 			categories: data.map((row) => {
@@ -57,7 +68,10 @@ function Chart() {
 		},
 		yAxis: {
 			title: {
-				text: null,
+				text: sufix,
+				style: {
+					color: color,
+				},
 			},
 			labels: {
 				style: {

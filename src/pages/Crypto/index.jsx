@@ -64,10 +64,7 @@ function Crypto() {
 						content={obj.lowestAsk}
 						sufix={sufix}
 					/>
-				</CardBox>
-			)}
-			{obj && (
-				<CardBox>
+
 					<Cards
 						title={'Volume'}
 						content={obj.baseVolume}

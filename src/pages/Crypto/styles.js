@@ -52,18 +52,19 @@ export const CardBox = styled.div`
 	width: 100%;
 	margin-top: 1rem;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 1fr 1fr;
 	gap: 1rem;
 
 	@media (max-width: 1000px) {
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
+		grid-template-rows: repeat(4, 1fr);
 		gap: 1rem;
 	}
 
 	@media (max-width: 500px) {
 		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-template-rows: repeat(8, 1fr);
 		gap: 1rem;
 	}
 `;
