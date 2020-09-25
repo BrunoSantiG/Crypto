@@ -29,3 +29,4 @@
 -   [Styled Icons](https://styled-icons.js.org)
 -   [React Router](https://reactrouter.com)
 -   [Highcharts React](https://github.com/highcharts/highcharts-react)
+-   [Enzyme](https://github.com/enzymejs/enzyme)
