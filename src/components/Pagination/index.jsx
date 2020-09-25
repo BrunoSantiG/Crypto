@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tooltip } from 'react-tippy';
 
 import { Controls, First, Prev, Numbers, PageItem, Next, Last } from './styles';
 function Pagination({ limit, page, setPage, totalItems }) {
@@ -54,19 +55,23 @@ function Pagination({ limit, page, setPage, totalItems }) {
 	};
 	return (
 		<Controls>
-			<First
-				onClick={() => {
-					controls.goTo(1);
-				}}
-			/>
+			<Tooltip title={`Ir para a primeira página`} position="bottom">
+				<First
+					onClick={() => {
+						controls.goTo(1);
+					}}
+				/>
+			</Tooltip>
 			<Prev onClick={controls.prev} />
 			<Numbers>{buttons.update()}</Numbers>
 			<Next onClick={controls.next} />
-			<Last
-				onClick={() => {
-					controls.goTo(lastPage);
-				}}
-			/>
+			<Tooltip title={`Ir para página ${lastPage}`} position="bottom">
+				<Last
+					onClick={() => {
+						controls.goTo(lastPage);
+					}}
+				/>
+			</Tooltip>
 		</Controls>
 	);
 }
