@@ -6,10 +6,7 @@
 <blockquote align="center">Um site para visualização de dados de cotações de criptomoedas em tempo real</blockquote>
 
 <p align="center">
-  <a href="https://crypto-brsanti.netlify.app"><img alt="Deploy status" src="https://api.netlify.com/api/v1/badges/bc310202-a43c-4ece-af7b-072d5ce75969/deploy-status"></a>
   <a href="https://github.com/BrunoSantiG/Crypto"><img alt="GitHub Actions status" src="https://github.com/BrunoSantiG/Crypto/workflows/Build/badge.svg"></a>
-  <br/>
-  <a href="https://crypto-brsanti.netlify.app">Acesse a demo</a>
 </p>
 
 ## Como usar
